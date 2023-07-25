@@ -16,7 +16,7 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
   var goodsNameController = TextEditingController();
   static var goodsId = "";
   static var goodsName = "";
-  String isSelectedItem = "";
+  String isSelectedItem = GetFireStore.categories.first;
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +54,11 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                       child: Text(value),
                     );
                   }).toList(),
+                  value: isSelectedItem,
                   onChanged: (String? value) {
                     setState(() {
                       isSelectedItem = value!;
+                      debugPrint(isSelectedItem);
                     });
                   },
                 ),
