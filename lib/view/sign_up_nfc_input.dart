@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:goodsmanagementsystem/firebase/createFireStore.dart';
 import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
 import 'package:goodsmanagementsystem/view/sign_up_nfc.dart';
 
@@ -14,8 +15,16 @@ class SignUpNfcInput extends StatefulWidget {
 class _SignUpNfcInputState extends State<SignUpNfcInput> {
   var goodsIdController = TextEditingController();
   var goodsNameController = TextEditingController();
+  var makerNameController = TextEditingController();
+  var modelNumberController = TextEditingController();
+  var supplierController = TextEditingController();
+
   static var goodsId = "";
   static var goodsName = "";
+  static var makerName = "";
+  static var modelNumber = "";
+  static var supplier = "";
+
   String isSelectedItem = GetFireStore.categories.first;
 
   @override
@@ -29,19 +38,33 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
             child: Column(
               children: [
                 TextField(
-                  controller: goodsIdController,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  controller: goodsNameController,
                   decoration: const InputDecoration(
-                    labelText: '物品ID',
+                    labelText: '物品名',
                     border: OutlineInputBorder(),
                   ),
                 ),
                 const SizedBox(height: 20),
                 TextField(
-                  controller: goodsNameController,
+                  controller: makerNameController,
                   decoration: const InputDecoration(
-                    labelText: '物品名',
+                    labelText: 'メーカー',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TextField(
+                  controller: modelNumberController,
+                  decoration: const InputDecoration(
+                    labelText: '型番',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TextField(
+                  controller: supplierController,
+                  decoration: const InputDecoration(
+                    labelText: '購入元',
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -67,12 +90,21 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                     onPressed: () {
                       goodsId = goodsIdController.text;
                       goodsName = goodsNameController.text;
+                      makerName = makerNameController.text;
+                      modelNumber = modelNumberController.text;
+                      supplier = supplierController.text;
+                      CreateFireStore.addItem(isSelectedItem, goodsName, makerName, modelNumber,
+                          supplier);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => SignUpNfc(
                                   goodsId: goodsId,
                                   goodsName: goodsName,
+                                  makerName: makerName,
+                                  modelNumber: modelNumber,
+                                  supplier: supplier,
+                                  category: isSelectedItem,
                                 )),
                       );
                     },

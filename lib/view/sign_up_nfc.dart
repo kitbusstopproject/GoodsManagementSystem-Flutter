@@ -7,7 +7,19 @@ import 'package:nfc_manager/nfc_manager.dart';
 class SignUpNfc extends StatefulWidget {
   final goodsId;
   final goodsName;
-  const SignUpNfc({Key? key, required this.goodsId, required this.goodsName})
+  final makerName;
+  final modelNumber;
+  final supplier;
+  final category;
+
+  const SignUpNfc(
+      {Key? key,
+      required this.goodsId,
+      required this.goodsName,
+      required this.makerName,
+      required this.modelNumber,
+      required this.supplier,
+      required this.category})
       : super(key: key);
 
   @override
@@ -44,6 +56,7 @@ class _SignUpNfcState extends State<SignUpNfc> {
       }
 
       NdefMessage message = NdefMessage([
+        // id書き込みを行っている
         NdefRecord.createText(widget.goodsId),
       ]);
 
@@ -65,4 +78,3 @@ class _SignUpNfcState extends State<SignUpNfc> {
     // );
   }
 }
-
