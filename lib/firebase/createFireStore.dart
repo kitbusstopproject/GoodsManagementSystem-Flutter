@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CreateFireStore {
+  static String id = "";
   static Future<void> addItem(
       category, item_name, maker, model_number, supplier) async {
     final db = FirebaseFirestore.instance;
@@ -16,8 +17,10 @@ class CreateFireStore {
     };
 
     // Add a new document with a generated ID
-    db.collection("items").add(item).then((DocumentReference doc) =>
-        debugPrint('DocumentSnapshot added with ID: ${doc.id}'));
-
+    await db
+        .collection("items")
+        .add(item)
+        .then((DocumentReference doc) => id = doc.id);
+    debugPrint(id);
   }
 }

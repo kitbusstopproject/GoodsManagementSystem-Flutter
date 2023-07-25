@@ -42,7 +42,7 @@ class _SignUpNfcState extends State<SignUpNfc> {
         appBar: AppBar(
           title: const Text("新規登録"),
         ),
-        body: Text(widget.goodsName));
+        body: Text(widget.goodsId));
   }
 
   void _ndefWrite() {

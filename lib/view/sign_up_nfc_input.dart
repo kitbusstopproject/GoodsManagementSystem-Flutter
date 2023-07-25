@@ -87,19 +87,20 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                 ),
                 const SizedBox(height: 20),
                 FilledButton(
-                    onPressed: () {
+                    onPressed: () async {
                       goodsId = goodsIdController.text;
                       goodsName = goodsNameController.text;
                       makerName = makerNameController.text;
                       modelNumber = modelNumberController.text;
                       supplier = supplierController.text;
-                      CreateFireStore.addItem(isSelectedItem, goodsName, makerName, modelNumber,
+                      await CreateFireStore.addItem(isSelectedItem, goodsName, makerName, modelNumber,
                           supplier);
+                      // ignore: use_build_context_synchronously
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => SignUpNfc(
-                                  goodsId: goodsId,
+                                  goodsId: CreateFireStore.id,
                                   goodsName: goodsName,
                                   makerName: makerName,
                                   modelNumber: modelNumber,
