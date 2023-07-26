@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
-import 'package:goodsmanagementsystem/firebase/setFireStore.dart';
 import 'package:goodsmanagementsystem/view/lendhing_nfc_input.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -37,11 +36,6 @@ class _LendingNfcState extends State<LendingNfc> {
         title: const Text("貸出"),
       ),
       body: const Center(child: Text("貸出画面")),
-
-      // body: FloatingActionButton(onPressed: () {
-      //   // SetFireStore.setLending("bws4ug9n2O12ExJxpTan");
-      //   // GetFireStore.getItem("101aIjX0awmHOdmaG8tX");
-      // })
     );
   }
 

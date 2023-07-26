@@ -19,8 +19,6 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
   var commentsController = TextEditingController();
   var nameController = TextEditingController();
 
-  static var comments = "";
-  static var name = "";
 
   @override
   Widget build(BuildContext context) {
