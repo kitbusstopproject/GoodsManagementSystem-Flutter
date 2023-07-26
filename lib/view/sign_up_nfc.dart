@@ -29,6 +29,8 @@ class SignUpNfc extends StatefulWidget {
 
 class _SignUpNfcState extends State<SignUpNfc> {
   ValueNotifier<dynamic> result = ValueNotifier(null);
+  
+
 
   @override
   void initState() {

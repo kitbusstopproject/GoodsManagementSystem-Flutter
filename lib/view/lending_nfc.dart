@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
+import 'package:goodsmanagementsystem/view/lendhing_nfc_input.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -23,38 +25,43 @@ class _LendingNfcState extends State<LendingNfc> {
 
   @override
   Widget build(BuildContext context) {
+    final lendItem = GetFireStore.getItem('101aIjX0awmHOdmaG8tX');
+    lendItem.then((value) {
+      debugPrint(value["isLending"].toString());
+      value["isLending"] = true;
+      value["lending_log_id"] = "";
+    });
     return Scaffold(
       appBar: AppBar(
         title: const Text("貸出"),
       ),
       body: const Center(child: Text("貸出画面")),
-
-      // body: Column(
-      //     children: await category.map((document) {
-      //   return ListTile(
-      //     title: Text('${document['category']}'),
-
-      //   );
-      // }).toList()),
     );
   }
 
   void _tagRead() {
     NfcManager.instance.startSession(onDiscovered: (NfcTag tag) async {
+      String item_id = "";
       result.value = tag.data;
-      Fluttertoast.showToast(msg: tag.data.toString());
+      // Fluttertoast.showToast(msg: tag.data.toString());
+
+      try {
+        List<int> tagData =
+            tag.data["ndef"]["cachedMessage"]["records"][0]["payload"];
+        for (int i = 3; i < tagData.length; i++) {
+          item_id += String.fromCharCode(tagData[i]);
+        }
+        // try/catch意味なかった
+      } catch (e) {
+        // Fluttertoast.showToast(msg: e.toString());
+        debugPrint("未登録のタグ");
+      }
+
+      debugPrint(item_id);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => LendingNfcInput(item_id: item_id)));
     });
   }
-
-  // Future<Map<String, dynamic>> getCategory() async {
-  //   // Future<QueryDocumentSnapshot<Map<String, dynamic>>> getCategory() async {
-  //   WidgetsFlutterBinding.ensureInitialized();
-  //   FirebaseFirestore db = FirebaseFirestore.instance;
-  //   var category = await db.collection("category").get();
-
-  //   for (var doc in category.docs) {
-  //     debugPrint("${doc.id} => ${doc.data()}");
-  //   }
-  //   return category.docs[0].data();
-  // }
 }

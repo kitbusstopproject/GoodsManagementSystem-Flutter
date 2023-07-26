@@ -100,7 +100,7 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => SignUpNfc(
-                                  goodsId: CreateFireStore.id,
+                                  goodsId: CreateFireStore.itemId,
                                   goodsName: goodsName,
                                   makerName: makerName,
                                   modelNumber: modelNumber,
