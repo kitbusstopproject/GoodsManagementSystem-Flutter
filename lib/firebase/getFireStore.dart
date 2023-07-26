@@ -19,4 +19,13 @@ class GetFireStore {
       categories.add(value);
     });
   }
+
+  static Future<dynamic> getItem(String itemId) async {
+    final db = FirebaseFirestore.instance.collection("items").doc(itemId);
+    final dynamic itemSnapshot = await db.get();
+    final dynamic itemCollection =
+        itemSnapshot.exists ? itemSnapshot.data()! : null;
+    // debugPrint(itemCollection.toString());
+    return itemCollection;
+  }
 }
