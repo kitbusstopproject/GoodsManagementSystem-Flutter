@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
 import 'package:goodsmanagementsystem/view/lendhing_nfc_input.dart';
 import 'package:nfc_manager/nfc_manager.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class LendingNfc extends StatefulWidget {
   const LendingNfc({Key? key}) : super(key: key);

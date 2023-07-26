@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:goodsmanagementsystem/firebase/createFireStore.dart';
 import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
 import 'package:goodsmanagementsystem/view/sign_up_nfc.dart';
 
 // ignore: must_be_immutable
 class SignUpNfcInput extends StatefulWidget {
-  SignUpNfcInput({Key? key}) : super(key: key);
+  const SignUpNfcInput({Key? key}) : super(key: key);
 
   @override
   State<SignUpNfcInput> createState() => _SignUpNfcInputState();
@@ -19,7 +18,6 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
   var modelNumberController = TextEditingController();
   var supplierController = TextEditingController();
 
-  static var goodsId = "";
   static var goodsName = "";
   static var makerName = "";
   static var modelNumber = "";
@@ -88,7 +86,6 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                 const SizedBox(height: 20),
                 FilledButton(
                     onPressed: () async {
-                      goodsId = goodsIdController.text;
                       goodsName = goodsNameController.text;
                       makerName = makerNameController.text;
                       modelNumber = modelNumberController.text;
