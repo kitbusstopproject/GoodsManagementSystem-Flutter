@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
-import 'package:goodsmanagementsystem/view/lendhing_nfc_input.dart';
+import 'package:goodsmanagementsystem/view/lending_nfc_input.dart';
 import 'package:nfc_manager/nfc_manager.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class LendingNfc extends StatefulWidget {
   const LendingNfc({Key? key}) : super(key: key);
@@ -25,12 +24,12 @@ class _LendingNfcState extends State<LendingNfc> {
 
   @override
   Widget build(BuildContext context) {
-    final lendItem = GetFireStore.getItem('101aIjX0awmHOdmaG8tX');
-    lendItem.then((value) {
-      debugPrint(value["isLending"].toString());
-      value["isLending"] = true;
-      value["lending_log_id"] = "";
-    });
+    // final lendItem = GetFireStore.getItem('101aIjX0awmHOdmaG8tX');
+    // lendItem.then((value) {
+    //   debugPrint(value["isLending"].toString());
+    //   value["isLending"] = true;
+    //   value["lending_log_id"] = "";
+    // });
     return Scaffold(
       appBar: AppBar(
         title: const Text("貸出"),

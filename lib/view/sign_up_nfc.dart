@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:goodsmanagementsystem/view/sign_up_result.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class SignUpNfc extends StatefulWidget {
@@ -29,8 +30,6 @@ class SignUpNfc extends StatefulWidget {
 
 class _SignUpNfcState extends State<SignUpNfc> {
   ValueNotifier<dynamic> result = ValueNotifier(null);
-  
-
 
   @override
   void initState() {
@@ -72,11 +71,16 @@ class _SignUpNfcState extends State<SignUpNfc> {
         return;
       }
       Fluttertoast.showToast(msg: result.value);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => SignUpResult(
+                    goodsName: widget.goodsName,
+                    makerName: widget.makerName,
+                    modelNumber: widget.modelNumber,
+                    supplier: widget.supplier,
+                    category: widget.category,
+                  )));
     });
-    // Fluttertoast.showToast(msg: result.value);
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => Result(value: result.value)),
-    // );
   }
 }
