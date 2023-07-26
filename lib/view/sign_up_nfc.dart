@@ -73,10 +73,5 @@ class _SignUpNfcState extends State<SignUpNfc> {
       }
       Fluttertoast.showToast(msg: result.value);
     });
-    // Fluttertoast.showToast(msg: result.value);
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => Result(value: result.value)),
-    // );
   }
 }
