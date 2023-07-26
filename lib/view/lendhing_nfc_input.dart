@@ -49,7 +49,7 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
               FilledButton(
                   onPressed: () {
                     CreateFireStore.addLendingLogs(
-                        comments, widget.item_id, name);
+                        commentsController.text, widget.item_id, nameController.text);
                     UpdateFireStore.updateLendingItem(
                         widget.item_id, CreateFireStore.lendingId);
                   },
