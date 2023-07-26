@@ -64,10 +64,10 @@ class _LendingNfcState extends State<LendingNfc> {
       }
 
       debugPrint(item_id);
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        // return LendingNfcInput(item_id: tag.data.toString());
-        return LendingNfcInput(item_id: item_id);
-      }));
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => LendingNfcInput(item_id: item_id)));
     });
   }
 }

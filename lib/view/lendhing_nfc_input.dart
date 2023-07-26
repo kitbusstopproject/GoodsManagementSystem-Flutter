@@ -16,14 +16,11 @@ class LendingNfcInput extends StatefulWidget {
 }
 
 class _LendingNfcInputState extends State<LendingNfcInput> {
-
-
   var commentsController = TextEditingController();
   var nameController = TextEditingController();
 
   static var comments = "";
   static var name = "";
-
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +47,12 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
               ),
               const SizedBox(height: 20),
               FilledButton(
-                  onPressed: lendingButtonOnPressed(comments, name, widget.item_id),
+                  onPressed: () {
+                    CreateFireStore.addLendingLogs(
+                        comments, widget.item_id, name);
+                    UpdateFireStore.updateLendingItem(
+                        widget.item_id, CreateFireStore.lendingId);
+                  },
                   // onPressed: () async {
                   //   comments = commentsController.text;
                   //   name = nameController.text;
@@ -80,8 +82,5 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
     );
   }
 
-  lendingButtonOnPressed(comments, name, item_id) async {
-    CreateFireStore.addLendingLogs(comments, item_id, name);
-    UpdateFireStore.updateLendingItem(item_id, CreateFireStore.lendingId);
-  }
+  lendingButtonOnPressed(comments, name, item_id) async {}
 }

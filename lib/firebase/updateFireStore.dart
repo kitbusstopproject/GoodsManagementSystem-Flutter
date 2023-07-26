@@ -13,7 +13,7 @@ class UpdateFireStore {
     };
 
     // Add a new document with a generated ID
-    // await db.collection("items").doc(itemId).update(lendingItem);
+    await db.collection("items").doc(itemId).update(lendingItem);
     debugPrint(itemId);
   }
 }
