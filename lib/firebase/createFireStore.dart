@@ -31,7 +31,7 @@ class CreateFireStore {
     final db = FirebaseFirestore.instance;
     final lendingLog = <String, dynamic>{
       "comments": comments,
-      "item_id": "",
+      "item_id": item_id,
       "lending_date": FieldValue.serverTimestamp(),
       "name": name,
     };

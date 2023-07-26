@@ -48,39 +48,15 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
               const SizedBox(height: 20),
               FilledButton(
                   onPressed: () {
-                    CreateFireStore.addLendingLogs(
-                        commentsController.text, widget.item_id, nameController.text);
+                    CreateFireStore.addLendingLogs(commentsController.text,
+                        widget.item_id, nameController.text);
                     UpdateFireStore.updateLendingItem(
                         widget.item_id, CreateFireStore.lendingId);
+                    debugPrint(widget.item_id);
                   },
-                  // onPressed: () async {
-                  //   comments = commentsController.text;
-                  //   name = nameController.text;
-                  //   await CreateFireStore.addLendingLogs(
-                  //       comments, item_id, name);
-                  //   await CreateFireStore.addItem(
-                  //       category, item_name, maker, model_number, supplier);
-                  //   Fluttertoast.showToast(msg: "貸出完了");
-
-                  //   // ignore: use_build_context_synchronously
-                  //   // Navigator.push(
-                  //   //   context,
-                  //   //   MaterialPageRoute(
-                  //   //       builder: (context) => SignUpNfc(
-                  //   //             goodsId: CreateFireStore.id,
-                  //   //             goodsName: goodsName,
-                  //   //             makerName: makerName,
-                  //   //             modelNumber: modelNumber,
-                  //   //             supplier: supplier,
-                  //   //             category: isSelectedItem,
-                  //   //           )),
-                  //   // );
-                  // },
                   child: const Text('情報登録')),
             ],
           )),
     );
   }
-
-  lendingButtonOnPressed(comments, name, item_id) async {}
 }
