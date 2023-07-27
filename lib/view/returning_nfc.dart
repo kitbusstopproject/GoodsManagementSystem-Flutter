@@ -28,7 +28,16 @@ class _ReturningNfcState extends State<ReturningNfc> {
       appBar: AppBar(
         title: const Text("返却"),
       ),
-      body: const Center(child: Text("返却画面")),
+      body: Center(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          SizedBox(
+            height: 200,
+            child: Image.asset('images/notty.jpg'),
+          ),
+          const SizedBox(height: 20),
+          const Text("使い終わった機材のNFCをタッチしてください")
+        ]),
+      ),
     );
   }
 
@@ -50,8 +59,8 @@ class _ReturningNfcState extends State<ReturningNfc> {
         debugPrint("未登録のタグ");
       }
       UpdateFireStore.updateReturningItem(item_id);
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const ReturnigResult()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const ReturnigResult()));
     });
   }
 }

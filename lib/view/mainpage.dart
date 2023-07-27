@@ -20,7 +20,7 @@ class Mainpage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignUpNfcInput()),
+                    MaterialPageRoute(builder: (context) => const SignUpNfcInput()),
                   );
                 }),
             const SizedBox(height: 20),

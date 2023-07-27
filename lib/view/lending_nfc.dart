@@ -23,18 +23,20 @@ class _LendingNfcState extends State<LendingNfc> {
 
   @override
   Widget build(BuildContext context) {
-    // final lendItem = GetFireStore.getItem('101aIjX0awmHOdmaG8tX');
-    // lendItem.then((value) {
-    //   debugPrint(value["isLending"].toString());
-    //   value["isLending"] = true;
-    //   value["lending_log_id"] = "";
-    // });
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("貸出"),
-      ),
-      body: const Center(child: Text("貸出画面")),
-    );
+        appBar: AppBar(
+          title: const Text("貸出"),
+        ),
+        body: Center(
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            SizedBox(
+              height: 200,
+              child: Image.asset('images/notty.jpg'),
+            ),
+            const SizedBox(height: 20),
+            const Text("使いたい機材のNFCをタッチしてください")
+          ]),
+        ));
   }
 
   void _tagRead() {
