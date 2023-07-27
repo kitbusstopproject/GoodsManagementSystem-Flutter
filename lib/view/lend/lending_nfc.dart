@@ -3,8 +3,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/firebase/check_registered.dart';
+import 'package:goodsmanagementsystem/firebase/get_firestore.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_nfc_input.dart';
 import 'package:goodsmanagementsystem/view/no_registered.dart';
+import 'package:goodsmanagementsystem/view/return/no_returning.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class LendingNfc extends StatefulWidget {
@@ -63,10 +65,16 @@ class _LendingNfcState extends State<LendingNfc> {
 
       debugPrint(item_id);
       if (await CheckRegistered.checkExist(item_id)) {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LendingNfcInput(item_id: item_id)));
+        final item = await GetFireStore.getItem(item_id);
+        if (!item["is_lending"]) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => LendingNfcInput(item_id: item_id)));
+        } else {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const NoReturning()));
+        }
       } else {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const NoRegistered()));

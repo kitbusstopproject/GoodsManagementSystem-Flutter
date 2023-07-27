@@ -1,10 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/firebase/check_registered.dart';
 import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_result.dart';
-import 'package:goodsmanagementsystem/view/no_registered.dart';
 
 import '../../firebase/create_firestore.dart';
 

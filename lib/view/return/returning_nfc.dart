@@ -3,7 +3,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/firebase/check_registered.dart';
+import 'package:goodsmanagementsystem/firebase/get_firestore.dart';
 import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
+import 'package:goodsmanagementsystem/view/lend/no_lending.dart';
 import 'package:goodsmanagementsystem/view/no_registered.dart';
 import 'package:goodsmanagementsystem/view/return/returning_result.dart';
 import 'package:nfc_manager/nfc_manager.dart';
@@ -65,9 +67,15 @@ class _ReturningNfcState extends State<ReturningNfc> {
 
       // itemが登録されているか
       if (await CheckRegistered.checkExist(item_id)) {
-        UpdateFireStore.updateReturningItem(item_id);
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ReturnigResult()));
+        final item = await GetFireStore.getItem(item_id);
+        if (item["is_lending"]) {
+          UpdateFireStore.updateReturningItem(item_id);
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ReturnigResult()));
+        } else {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const NoLending()));
+        }
       } else {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const NoRegistered()));
