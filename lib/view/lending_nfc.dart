@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
 import 'package:goodsmanagementsystem/view/lending_nfc_input.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
