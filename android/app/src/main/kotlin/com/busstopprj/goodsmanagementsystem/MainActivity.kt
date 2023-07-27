@@ -1,4 +1,4 @@
-package com.example.goodsmanagementsystem
+package com.busstopprj.goodsmanagementsystem
 
 import io.flutter.embedding.android.FlutterActivity
 

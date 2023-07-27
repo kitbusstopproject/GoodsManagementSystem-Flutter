@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:397923798650:android:0e9344637e06e5108e35c3",
         "android_client_info": {
-          "package_name": "com.example.goodsmanagementsystem"
+          "package_name": "com.busstopprj.goodsmanagementsystem"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "397923798650-64gc8escl1nhmafoooeiqeckmr5dcopl.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.goodsmanagementsystem"
+                "bundle_id": "com.busstopprj.goodsmanagementsystem"
               }
             }
           ]
