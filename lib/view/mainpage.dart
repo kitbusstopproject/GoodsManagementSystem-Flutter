@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/components/action_card.dart';
-import 'package:goodsmanagementsystem/view/lending_nfc.dart';
-import 'package:goodsmanagementsystem/view/returning_nfc.dart';
-import 'package:goodsmanagementsystem/view/sign_up_nfc_input.dart';
+import 'package:goodsmanagementsystem/view/lend/lending_nfc.dart';
+import 'package:goodsmanagementsystem/view/return/returning_nfc.dart';
+import 'package:goodsmanagementsystem/view/sign_up/sign_up_nfc_input.dart';
 
 class Mainpage extends StatelessWidget {
   const Mainpage({super.key});

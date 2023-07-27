@@ -1,7 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/firebase/updateFireStore.dart';
-import 'package:goodsmanagementsystem/view/returning_result.dart';
+import 'package:goodsmanagementsystem/firebase/check_registered.dart';
+import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
+import 'package:goodsmanagementsystem/view/no_registered.dart';
+import 'package:goodsmanagementsystem/view/return/returning_result.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class ReturningNfc extends StatefulWidget {
@@ -58,9 +62,16 @@ class _ReturningNfcState extends State<ReturningNfc> {
         // Fluttertoast.showToast(msg: e.toString());
         debugPrint("未登録のタグ");
       }
-      UpdateFireStore.updateReturningItem(item_id);
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const ReturnigResult()));
+
+      // itemが登録されているか
+      if (await CheckRegistered.checkExist(item_id)) {
+        UpdateFireStore.updateReturningItem(item_id);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ReturnigResult()));
+      } else {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const NoRegistered()));
+      }
     });
   }
 }

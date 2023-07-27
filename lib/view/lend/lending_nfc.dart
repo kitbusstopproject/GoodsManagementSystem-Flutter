@@ -1,6 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/view/lending_nfc_input.dart';
+import 'package:goodsmanagementsystem/firebase/check_registered.dart';
+import 'package:goodsmanagementsystem/view/lend/lending_nfc_input.dart';
+import 'package:goodsmanagementsystem/view/no_registered.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class LendingNfc extends StatefulWidget {
@@ -58,10 +62,15 @@ class _LendingNfcState extends State<LendingNfc> {
       }
 
       debugPrint(item_id);
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => LendingNfcInput(item_id: item_id)));
+      if (await CheckRegistered.checkExist(item_id)) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => LendingNfcInput(item_id: item_id)));
+      } else {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const NoRegistered()));
+      }
     });
   }
 }

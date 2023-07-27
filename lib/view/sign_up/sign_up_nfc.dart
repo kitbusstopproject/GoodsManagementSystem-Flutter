@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:goodsmanagementsystem/view/sign_up_result.dart';
+import 'package:goodsmanagementsystem/view/sign_up/sign_up_result.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class SignUpNfc extends StatefulWidget {
