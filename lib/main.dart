@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/app.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
+import 'package:goodsmanagementsystem/firebase/get_firestore.dart';
 import 'firebase_options.dart';
 
 void main() async {

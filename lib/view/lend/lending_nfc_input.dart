@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/firebase/updateFireStore.dart';
-import 'package:goodsmanagementsystem/view/lending_result.dart';
+// ignore_for_file: use_build_context_synchronously
 
-import '../firebase/createFireStore.dart';
+import 'package:flutter/material.dart';
+import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
+import 'package:goodsmanagementsystem/view/lend/lending_result.dart';
+
+import '../../firebase/create_firestore.dart';
 
 class LendingNfcInput extends StatefulWidget {
   final item_id;
@@ -51,7 +53,6 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
                         nameController.text);
                     UpdateFireStore.updateLendingItem(
                         widget.item_id, CreateFireStore.lendingId);
-                    debugPrint(widget.item_id);
                     Navigator.push(
                         context,
                         MaterialPageRoute(

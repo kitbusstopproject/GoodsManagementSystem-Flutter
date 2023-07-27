@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/firebase/createFireStore.dart';
-import 'package:goodsmanagementsystem/firebase/getFireStore.dart';
-import 'package:goodsmanagementsystem/view/sign_up_nfc.dart';
+import 'package:goodsmanagementsystem/firebase/create_firestore.dart';
+import 'package:goodsmanagementsystem/firebase/get_firestore.dart';
+import 'package:goodsmanagementsystem/view/sign_up/sign_up_nfc.dart';
 
 // ignore: must_be_immutable
 class SignUpNfcInput extends StatefulWidget {

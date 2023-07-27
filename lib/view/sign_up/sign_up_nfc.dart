@@ -1,8 +1,8 @@
-// ignore_for_file: prefer_typing_uninitialized_variables, use_build_context_synchronously
+// ignore_for_file: prefer_typing_uninitialized_variables, use_build_context_synchronously, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:goodsmanagementsystem/view/sign_up_result.dart';
+import 'package:goodsmanagementsystem/view/sign_up/sign_up_result.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class SignUpNfc extends StatefulWidget {
@@ -40,10 +40,25 @@ class _SignUpNfcState extends State<SignUpNfc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("新規登録"),
-        ),
-        body: Text(widget.goodsId));
+      appBar: AppBar(
+        title: const Text("新規登録"),
+      ),
+      body: Center(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          SizedBox(
+            height: 200,
+            child: Image.asset('images/notty.jpg'),
+          ),
+          const SizedBox(height: 20),
+          Text("物品名:" + widget.goodsName),
+          Text("メーカー:" + widget.makerName),
+          Text("型番:" + widget.modelNumber),
+          Text("購入元:" + widget.supplier),
+          const SizedBox(height: 20),
+          const Text("登録したいNFCをタッチしてください\n既に登録されているタグは上書きしちゃうゾ")
+        ]),
+      ),
+    );
   }
 
   void _ndefWrite() {
