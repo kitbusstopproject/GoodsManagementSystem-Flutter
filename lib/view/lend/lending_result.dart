@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/audio/audio_controller.dart';
+import 'package:goodsmanagementsystem/audio/lending_audio_controller.dart';
 
 class LendingResult extends StatefulWidget {
   const LendingResult({super.key});
@@ -11,7 +11,7 @@ class LendingResult extends StatefulWidget {
 class _LendingResultState extends State<LendingResult> {
   @override
   void dispose() {
-    AudioController.player.dispose();
+    LendingAudioController.player.dispose();
     super.dispose();
   }
 

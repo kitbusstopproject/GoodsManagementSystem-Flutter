@@ -1,8 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/audio/audio_controller.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:goodsmanagementsystem/audio/lending_audio_controller.dart';
 import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
 import 'package:goodsmanagementsystem/utils/slack_control.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_result.dart';
@@ -29,7 +28,7 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
   @override
   void initState() {
     super.initState();
-    AudioController.setupSession();
+    LendingAudioController.setupSession();
   }
 
   @override
@@ -58,7 +57,6 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
               const SizedBox(height: 20),
               FilledButton(
                   onPressed: () async {
-                    SlackControl.lendingInformationSend(nameController.text, widget.item_name);
                     await CreateFireStore.addLendingLogs(
                         commentsController.text,
                         widget.item_id,
@@ -70,7 +68,18 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
                         MaterialPageRoute(
                             builder: (context) => const LendingResult()));
                     if (commentsController.text.endsWith('のだ')) {
-                      await AudioController.playSoundFile();
+                      SlackControl.lendingInformationSend(
+                          commentsController.text,
+                          nameController.text,
+                          widget.item_name,
+                          true);
+                      await LendingAudioController.playSoundFile();
+                    } else {
+                      SlackControl.lendingInformationSend(
+                          commentsController.text,
+                          nameController.text,
+                          widget.item_name,
+                          false);
                     }
                   },
                   child: const Text('情報登録')),
