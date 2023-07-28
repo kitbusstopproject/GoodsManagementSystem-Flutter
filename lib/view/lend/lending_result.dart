@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:goodsmanagementsystem/audio/audio_controller.dart';
 
-class LendingResult extends StatelessWidget {
+class LendingResult extends StatefulWidget {
   const LendingResult({super.key});
+
+  @override
+  State<LendingResult> createState() => _LendingResultState();
+}
+
+class _LendingResultState extends State<LendingResult> {
+  @override
+  void dispose() {
+    AudioController.player.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

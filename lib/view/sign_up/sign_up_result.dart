@@ -20,7 +20,7 @@ class SignUpResult extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("貸出"),
+        title: const Text("新規登録"),
       ),
       body: Center(
           child: Column(
