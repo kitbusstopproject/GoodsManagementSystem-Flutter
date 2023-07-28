@@ -57,7 +57,6 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
               const SizedBox(height: 20),
               FilledButton(
                   onPressed: () async {
-                    SlackControl.lendingInformationSend(nameController.text, widget.item_name);
                     await CreateFireStore.addLendingLogs(
                         commentsController.text,
                         widget.item_id,
@@ -69,7 +68,18 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
                         MaterialPageRoute(
                             builder: (context) => const LendingResult()));
                     if (commentsController.text.endsWith('のだ')) {
+                      SlackControl.lendingInformationSend(
+                          commentsController.text,
+                          nameController.text,
+                          widget.item_name,
+                          true);
                       await LendingAudioController.playSoundFile();
+                    } else {
+                      SlackControl.lendingInformationSend(
+                          commentsController.text,
+                          nameController.text,
+                          widget.item_name,
+                          false);
                     }
                   },
                   child: const Text('情報登録')),
