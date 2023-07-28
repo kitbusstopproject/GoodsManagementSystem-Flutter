@@ -23,11 +23,13 @@ class MyApp extends StatelessWidget {
       title: 'GoodsManagementSystemApp',
       theme: ThemeData(
         useMaterial3: true,
+        fontFamily: "MPLUSRounded",
         colorSchemeSeed: Colors.white,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
         useMaterial3: true,
+        fontFamily: "MPLUSRounded",
         colorSchemeSeed: Colors.white,
         brightness: Brightness.dark,
       ),
@@ -35,4 +37,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

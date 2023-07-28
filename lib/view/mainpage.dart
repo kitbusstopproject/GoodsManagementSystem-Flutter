@@ -25,6 +25,13 @@ class _MainpageState extends State<Mainpage> {
     });
   }
 
+  void resetCounter() {
+    setState(() {
+      _counter = 0;
+      debugPrint(_counter.toString());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -72,7 +79,7 @@ class _MainpageState extends State<Mainpage> {
                       incrementCounter();
                       debugPrint(_counter.toString());
                     } else {
-                      _counter = 0;
+                      resetCounter();
                       ZunmonAudioController.setupSession();
                       Navigator.push(
                         context,
