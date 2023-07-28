@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
 import 'package:goodsmanagementsystem/utils/slackControl.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_result.dart';
@@ -9,9 +10,11 @@ import '../../firebase/create_firestore.dart';
 
 class LendingNfcInput extends StatefulWidget {
   final item_id;
+  final item_name;
   const LendingNfcInput({
     Key? key,
     required this.item_id,
+    required this.item_name,
   }) : super(key: key);
 
   @override
@@ -48,7 +51,8 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
               const SizedBox(height: 20),
               FilledButton(
                   onPressed: () async {
-                    SlackControl.lendingInformationSend();
+                    SlackControl.lendingInformationSend(commentsController.text,
+                        nameController.text, widget.item_name);
                     await CreateFireStore.addLendingLogs(
                         commentsController.text,
                         widget.item_id,

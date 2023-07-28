@@ -6,7 +6,7 @@ import "package:fluttertoast/fluttertoast.dart";
 import "env.dart";
 
 class SlackControl {
-  static lendingInformationSend() {
+  static lendingInformationSend(String comment, String name, String item) {
     Fluttertoast.showToast(msg: "slack Send!");
     final slack =
         SlackNotifier(webHookUrl);
@@ -18,7 +18,7 @@ class SlackControl {
       iconUrl: 'https://picsum.photos/48/48',
       username: 'My Bot',
       blocks: [SectionBlock(text: '物品の貸し出しがありました')],
-      // attachments: [Attachment(pretext: '○○さん', text: '物品名')],
+      attachments: [Attachment(pretext: '$nameさん', text: '物品名:$item')],
     );
   }
 }
