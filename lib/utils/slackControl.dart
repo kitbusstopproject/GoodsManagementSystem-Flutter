@@ -1,17 +1,15 @@
 library slack.api;
 
 import 'package:slack_notifier/slack_notifier.dart';
-import "dart:async";
-import "dart:convert";
-import "dart:io";
 import "package:flutter/cupertino.dart";
 import "package:fluttertoast/fluttertoast.dart";
+import "env.dart";
 
 class SlackControl {
   static lendingInformationSend() {
     Fluttertoast.showToast(msg: "slack Send!");
     final slack =
-        SlackNotifier('<webhookLink>');
+        SlackNotifier(webHookUrl);
     debugPrint('slack Send');
     slack.send(
       '物品の貸し出しがありました',
