@@ -7,7 +7,54 @@ class ZunmonAudioController {
   static List<String> voiceList = [
     'assets/audio/04.wav',
     'assets/audio/05.wav',
-    'assets/audio/06.wav'
+    'assets/audio/06.wav',
+    'assets/audio/chukichi.wav',
+    'assets/audio/chukichi.wav',
+    'assets/audio/chukichi.wav',
+    'assets/audio/chukichi.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/dai.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kichi.wav',
+    'assets/audio/kyou.wav',
+    'assets/audio/kyou.wav',
+    'assets/audio/kyou.wav',
+    'assets/audio/kyou.wav',
+    'assets/audio/kyou.wav',
+    'assets/audio/kyou.wav',
+    'assets/audio/suekichi.wav',
+    'assets/audio/suekichi.wav',
+    'assets/audio/suekichi.wav',
+    'assets/audio/suekichi.wav',
+    'assets/audio/suekichi.wav',
+    'assets/audio/suekichi.wav',
+    'assets/audio/suekichi.wav',
+    'assets/audio/syoukichi.wav',
+    'assets/audio/syoukichi.wav',
+    'assets/audio/syoukichi.wav',
+    'assets/audio/syoukichi.wav',
+    'assets/audio/syoukichi.wav',
+    'assets/audio/syoukichi.wav',
   ];
 
   static Future<void> setupSession() async {
@@ -29,7 +76,7 @@ class ZunmonAudioController {
   static Future<void> _loadAudioFile() async {
     var random = math.Random();
     try {
-      await player.setAsset(voiceList[random.nextInt(3)]);
+      await player.setAsset(voiceList[random.nextInt(50)]);
     } catch (e) {
       print(e);
     }

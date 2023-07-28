@@ -66,12 +66,7 @@ flutter:
   uses-material-design: true
   assets:
     - images/
-    - assets/audio/01.wav
-    - assets/audio/02.wav
-    - assets/audio/03.wav
-    - assets/audio/04.wav
-    - assets/audio/05.wav
-    - assets/audio/06.wav
+    - assets/audio/
 
   fonts:
     - family: MPLUSRounded
