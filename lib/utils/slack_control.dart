@@ -1,8 +1,6 @@
 library slack.api;
 
 import 'package:slack_notifier/slack_notifier.dart';
-import "package:flutter/cupertino.dart";
-import "package:fluttertoast/fluttertoast.dart";
 import "env.dart";
 
 class SlackControl {
