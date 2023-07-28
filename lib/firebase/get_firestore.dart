@@ -28,4 +28,13 @@ class GetFireStore {
     // debugPrint(itemCollection.toString());
     return itemCollection;
   }
+
+  static Future<dynamic> getLendingLog(String lendingLogId) async {
+    final db = FirebaseFirestore.instance.collection("lending_logs").doc(lendingLogId);
+    final dynamic lendingLogSnapshot = await db.get();
+    final dynamic lendingLogCollection =
+        lendingLogSnapshot.exists ? lendingLogSnapshot.data()! : null;
+    // debugPrint(lendingLogCollection.toString());
+    return lendingLogCollection;
+  }
 }
