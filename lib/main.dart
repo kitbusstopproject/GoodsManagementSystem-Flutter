@@ -13,9 +13,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-// ignore: constant_identifier_names
-const SeedColor = Color(0xFFEAA4A4);
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -26,12 +23,12 @@ class MyApp extends StatelessWidget {
       title: 'GoodsManagementSystemApp',
       theme: ThemeData(
         useMaterial3: true,
-        colorSchemeSeed: SeedColor,
+        colorSchemeSeed: Colors.white,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
         useMaterial3: true,
-        colorSchemeSeed: SeedColor,
+        colorSchemeSeed: Colors.white,
         brightness: Brightness.dark,
       ),
       home: const MyHomePage(),

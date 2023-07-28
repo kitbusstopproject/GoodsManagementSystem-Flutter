@@ -40,6 +40,8 @@ dependencies:
   firebase_core: ^2.14.0
   cloud_firestore: ^4.8.2
   flutter_launcher_icons: ^0.13.1
+  just_audio: ^0.9.34
+  audio_session: ^0.1.16
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +66,9 @@ flutter:
   uses-material-design: true
   assets:
     - images/notty.jpg
+    - assets/audio/01.wav
+    - assets/audio/02.wav
+    - assets/audio/03.wav
 
   # To add assets to your application, add an assets section, like this:
   # assets:

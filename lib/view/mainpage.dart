@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:goodsmanagementsystem/audio/audio_controller.dart';
 import 'package:goodsmanagementsystem/components/action_card.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_nfc.dart';
 import 'package:goodsmanagementsystem/view/return/returning_nfc.dart';
@@ -20,7 +21,8 @@ class Mainpage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SignUpNfcInput()),
+                    MaterialPageRoute(
+                        builder: (context) => const SignUpNfcInput()),
                   );
                 }),
             const SizedBox(height: 20),
@@ -38,7 +40,18 @@ class Mainpage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ReturningNfc()),
+                    MaterialPageRoute(
+                        builder: (context) => const ReturningNfc()),
+                  );
+                }),
+            const SizedBox(height: 20),
+            GestureDetector(
+                child: const ActionCard(actionName: "音声"),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AudioController()),
                   );
                 }),
           ],
