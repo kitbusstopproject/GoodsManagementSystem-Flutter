@@ -29,7 +29,7 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("物品登録"),
+          title: const Text("新規登録"),
         ),
         body: Padding(
             padding: const EdgeInsets.all(20),

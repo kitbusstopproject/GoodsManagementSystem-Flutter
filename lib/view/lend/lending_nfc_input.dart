@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:goodsmanagementsystem/audio/audio_controller.dart';
 import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_result.dart';
 
@@ -20,6 +21,12 @@ class LendingNfcInput extends StatefulWidget {
 class _LendingNfcInputState extends State<LendingNfcInput> {
   var commentsController = TextEditingController();
   var nameController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    AudioController.setupSession();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +64,9 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const LendingResult()));
+                    if (commentsController.text.endsWith('のだ')) {
+                      await AudioController.playSoundFile();
+                    }
                   },
                   child: const Text('情報登録')),
             ],
