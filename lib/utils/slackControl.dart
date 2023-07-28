@@ -6,8 +6,7 @@ import "package:fluttertoast/fluttertoast.dart";
 import "env.dart";
 
 class SlackControl {
-  static lendingInformationSend(String comment, String name, String item) {
-    Fluttertoast.showToast(msg: "slack Send!");
+  static lendingInformationSend(String name, String item) {
     final slack =
         SlackNotifier(webHookUrl);
     debugPrint('slack Send');

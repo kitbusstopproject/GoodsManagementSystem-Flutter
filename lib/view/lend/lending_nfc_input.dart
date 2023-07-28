@@ -51,8 +51,7 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
               const SizedBox(height: 20),
               FilledButton(
                   onPressed: () async {
-                    SlackControl.lendingInformationSend(commentsController.text,
-                        nameController.text, widget.item_name);
+                    SlackControl.lendingInformationSend(nameController.text, widget.item_name);
                     await CreateFireStore.addLendingLogs(
                         commentsController.text,
                         widget.item_id,
