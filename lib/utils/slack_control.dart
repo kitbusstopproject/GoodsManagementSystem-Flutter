@@ -20,7 +20,7 @@ class SlackControl {
     );
   }
 
-  static returnInformationSend( String item) {
+  static returnInformationSend(String lenderName, String item) {
     final slack =
         SlackNotifier(webHookUrl);
     slack.send(
@@ -30,7 +30,7 @@ class SlackControl {
       iconUrl: 'https://picsum.photos/48/48',
       username: 'My Bot',
       blocks: [SectionBlock(text: '貸し出されていた物品が返却されました')],
-      // attachments: [Attachment(pretext: '$nameさん', text: '物品名:$item')],
+      attachments: [Attachment(pretext: '$lenderNameさん', text: '物品名:$item')],
     );
   }
 }

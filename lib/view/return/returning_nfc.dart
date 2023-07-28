@@ -69,9 +69,10 @@ class _ReturningNfcState extends State<ReturningNfc> {
       // itemが登録されているか
       if (await CheckRegistered.checkExist(item_id)) {
         final item = await GetFireStore.getItem(item_id);
-
+        final lendingLog =
+            await GetFireStore.getLendingLog(item['lending_log_id']);
         if (item["is_lending"]) {
-          SlackControl.returnInformationSend( item['item_name']);
+          SlackControl.returnInformationSend(lendingLog['name'], item['item_name']);
           UpdateFireStore.updateReturningItem(item_id);
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const ReturnigResult()));
