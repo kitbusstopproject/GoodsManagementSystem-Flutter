@@ -1,16 +1,46 @@
 # goodsmanagementsystem
 
-A new Flutter project.
+## envファイルの設定
+firebaseFirestoreのoptionsとslackbotのwebHookUrlはenv設定をしてあるので各自の環境で設定してください。
 
-## Getting Started
+例
+lib\utils\env.dart
+```
+const webHookUrl = "";
 
-This project is a starting point for a Flutter application.
+// web firebase options
+const webApiKey = '';
+const webAppId = '';
+const webMessagingSenderId = '';
+const webProjectId = '';
+const webAuthDomain = '';
+const webStorageBucket = '';
+const webMeasurementId = '';
 
-A few resources to get you started if this is your first Flutter project:
+// android firebase options
+const androidApiKey = '';
+const androidAppId = '';
+const androidMessagingSenderId = '';
+const androidProjectId = '';
+const androidStorageBucket = '';
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+// ios firebase options
+const iosApiKey = '';
+const iosAppId = '';
+const iosMessagingSenderId = '';
+const iosProjectId = '';
+const iosStorageBucket = '';
+const iosIosClientId = '';
+const iosIosBundleId = '';
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+// macos firebase options
+const macosApiKey = '';
+const macosAppId = '';
+const macosMessagingSenderId = '';
+const macosProjectId = '';
+const macosStorageBucket = '';
+const macIosClientId = '';
+const macIosBundleId = '';
+
+```
+
