@@ -70,7 +70,7 @@ class _LendingNfcState extends State<LendingNfc> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => LendingNfcInput(item_id: item_id)));
+                  builder: (context) => LendingNfcInput(item_id: item_id, item_name: item['item_name'],)));
         } else {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const NoReturning()));
