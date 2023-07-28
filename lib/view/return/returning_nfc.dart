@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/firebase/check_registered.dart';
 import 'package:goodsmanagementsystem/firebase/get_firestore.dart';
 import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
-import 'package:goodsmanagementsystem/utils/slackControl.dart';
+import 'package:goodsmanagementsystem/utils/slack_control.dart';
 import 'package:goodsmanagementsystem/view/lend/no_lending.dart';
 import 'package:goodsmanagementsystem/view/no_registered.dart';
 import 'package:goodsmanagementsystem/view/return/returning_result.dart';

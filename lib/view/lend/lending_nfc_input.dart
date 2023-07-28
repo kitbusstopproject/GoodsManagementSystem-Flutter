@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
-import 'package:goodsmanagementsystem/utils/slackControl.dart';
+import 'package:goodsmanagementsystem/utils/slack_control.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_result.dart';
 
 import '../../firebase/create_firestore.dart';
