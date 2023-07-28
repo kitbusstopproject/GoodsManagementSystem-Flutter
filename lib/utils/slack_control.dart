@@ -20,7 +20,8 @@ class SlackControl {
   }
 
   static returnInformationSend(String lenderName, String item) {
-    final slack = SlackNotifier(webHookUrl);
+    final slack =
+        SlackNotifier(webHookUrl);
     slack.send(
       '貸し出されていた物品が返却されました',
       channel: 'flutterアプリテストチャンネル',
