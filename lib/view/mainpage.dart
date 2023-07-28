@@ -1,8 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
+import 'package:goodsmanagementsystem/audio/zunmon_audio_controller.dart';
 import 'package:goodsmanagementsystem/components/action_card.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_nfc.dart';
 import 'package:goodsmanagementsystem/view/return/returning_nfc.dart';
 import 'package:goodsmanagementsystem/view/sign_up/sign_up_nfc_input.dart';
+import 'package:goodsmanagementsystem/view/zundamon/zundamon.dart';
 
 class Mainpage extends StatefulWidget {
   const Mainpage({super.key});
@@ -13,16 +17,6 @@ class Mainpage extends StatefulWidget {
 
 class _MainpageState extends State<Mainpage> {
   int _counter = 0;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   void incrementCounter() {
     setState(() {
@@ -68,21 +62,27 @@ class _MainpageState extends State<Mainpage> {
                   );
                 }),
             const SizedBox(height: 20),
-            GestureDetector(
-                child: const ActionCard(actionName: "ずんだもん"),
-                onTap: () {
-                  if (_counter < 9) {
-                    incrementCounter();
-                    debugPrint(_counter.toString());
-                  } else {
-                    _counter = 0;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ReturningNfc()),
-                    );
-                  }
-                }),
+            Expanded(
+              child: GestureDetector(
+                  child: Opacity(
+                      opacity: _counter / 10,
+                      child: Image.asset("images/zunmon.png")),
+                  onTap: () async {
+                    if (_counter < 9) {
+                      incrementCounter();
+                      debugPrint(_counter.toString());
+                    } else {
+                      _counter = 0;
+                      ZunmonAudioController.setupSession();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Zundamon()),
+                      );
+                      await ZunmonAudioController.playSoundFile();
+                    }
+                  }),
+            )
           ],
         )));
   }

@@ -1,8 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:goodsmanagementsystem/audio/audio_controller.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:goodsmanagementsystem/audio/lending_audio_controller.dart';
 import 'package:goodsmanagementsystem/firebase/update_firestore.dart';
 import 'package:goodsmanagementsystem/utils/slack_control.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_result.dart';
@@ -29,7 +28,7 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
   @override
   void initState() {
     super.initState();
-    AudioController.setupSession();
+    LendingAudioController.setupSession();
   }
 
   @override
@@ -70,7 +69,7 @@ class _LendingNfcInputState extends State<LendingNfcInput> {
                         MaterialPageRoute(
                             builder: (context) => const LendingResult()));
                     if (commentsController.text.endsWith('のだ')) {
-                      await AudioController.playSoundFile();
+                      await LendingAudioController.playSoundFile();
                     }
                   },
                   child: const Text('情報登録')),
