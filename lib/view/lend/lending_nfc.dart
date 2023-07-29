@@ -51,26 +51,22 @@ class _LendingNfcState extends State<LendingNfc> {
       result.value = tag.data;
       // Fluttertoast.showToast(msg: tag.data.toString());
 
-      try {
-        List<int> tagData =
-            tag.data["ndef"]["cachedMessage"]["records"][0]["payload"];
-        for (int i = 3; i < tagData.length; i++) {
-          item_id += String.fromCharCode(tagData[i]);
-        }
-        // try/catch意味なかった
-      } catch (e) {
-        // Fluttertoast.showToast(msg: e.toString());
-        debugPrint("未登録のタグ");
+      List<int> tagData =
+          tag.data["ndef"]["cachedMessage"]["records"][0]["payload"];
+      for (int i = 3; i < tagData.length; i++) {
+        item_id += String.fromCharCode(tagData[i]);
       }
 
-      debugPrint(item_id);
       if (await CheckRegistered.checkExist(item_id)) {
         final item = await GetFireStore.getItem(item_id);
         if (!item["is_lending"]) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => LendingNfcInput(item_id: item_id, item_name: item['item_name'],)));
+                  builder: (context) => LendingNfcInput(
+                        item_id: item_id,
+                        item_name: item['item_name'],
+                      )));
         } else {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const NoReturning()));

@@ -24,7 +24,6 @@ class CreateFireStore {
         .collection("items")
         .add(item)
         .then((DocumentReference doc) => itemId = doc.id);
-    debugPrint(itemId);
   }
 
   static Future<void> addLendingLogs(comments, item_id, name) async {
@@ -41,6 +40,5 @@ class CreateFireStore {
         .collection("lending_logs")
         .add(lendingLog)
         .then((DocumentReference doc) => lendingId = doc.id);
-    debugPrint("lendingId:$lendingId");
   }
 }

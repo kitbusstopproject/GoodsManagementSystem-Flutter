@@ -12,10 +12,7 @@ class GetFireStore {
     final dynamic categoryList =
         categorySnapshot.exists ? categorySnapshot.data()! : null;
     category = categoryList;
-    debugPrint("=====================================");
-    debugPrint(category.length.toString());
     category.forEach((key, value) {
-      debugPrint("$key -----$value");
       categories.add(value);
     });
   }
@@ -25,7 +22,6 @@ class GetFireStore {
     final dynamic itemSnapshot = await db.get();
     final dynamic itemCollection =
         itemSnapshot.exists ? itemSnapshot.data()! : null;
-    // debugPrint(itemCollection.toString());
     return itemCollection;
   }
 
@@ -34,7 +30,6 @@ class GetFireStore {
     final dynamic lendingLogSnapshot = await db.get();
     final dynamic lendingLogCollection =
         lendingLogSnapshot.exists ? lendingLogSnapshot.data()! : null;
-    // debugPrint(lendingLogCollection.toString());
     return lendingLogCollection;
   }
 }

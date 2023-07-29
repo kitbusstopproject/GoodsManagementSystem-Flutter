@@ -80,7 +80,6 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                     onChanged: (String? value) {
                       setState(() {
                         isSelectedItem = value!;
-                        debugPrint(isSelectedItem);
                       });
                     },
                   ),
@@ -91,8 +90,8 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                         makerName = makerNameController.text;
                         modelNumber = modelNumberController.text;
                         supplier = supplierController.text;
-                        await CreateFireStore.addItem(isSelectedItem, goodsName, makerName, modelNumber,
-                            supplier);
+                        await CreateFireStore.addItem(isSelectedItem, goodsName,
+                            makerName, modelNumber, supplier);
                         // ignore: use_build_context_synchronously
                         Navigator.push(
                           context,

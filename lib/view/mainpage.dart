@@ -20,14 +20,12 @@ class _MainpageState extends State<Mainpage> {
   void incrementCounter() {
     setState(() {
       _counter++;
-      debugPrint(_counter.toString());
     });
   }
 
   void resetCounter() {
     setState(() {
       _counter = 0;
-      debugPrint(_counter.toString());
     });
   }
 
@@ -104,7 +102,6 @@ class _MainpageState extends State<Mainpage> {
                   onTap: () async {
                     if (_counter < 9) {
                       incrementCounter();
-                      debugPrint(_counter.toString());
                     } else {
                       resetCounter();
                       ZunmonAudioController.setupSession();

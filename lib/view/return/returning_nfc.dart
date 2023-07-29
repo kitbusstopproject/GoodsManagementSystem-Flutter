@@ -54,16 +54,10 @@ class _ReturningNfcState extends State<ReturningNfc> {
       result.value = tag.data;
       // Fluttertoast.showToast(msg: tag.data.toString());
 
-      try {
-        List<int> tagData =
-            tag.data["ndef"]["cachedMessage"]["records"][0]["payload"];
-        for (int i = 3; i < tagData.length; i++) {
-          item_id += String.fromCharCode(tagData[i]);
-        }
-        // try/catch意味なかった
-      } catch (e) {
-        // Fluttertoast.showToast(msg: e.toString());
-        debugPrint("未登録のタグ");
+      List<int> tagData =
+          tag.data["ndef"]["cachedMessage"]["records"][0]["payload"];
+      for (int i = 3; i < tagData.length; i++) {
+        item_id += String.fromCharCode(tagData[i]);
       }
 
       // itemが登録されているか
@@ -72,7 +66,8 @@ class _ReturningNfcState extends State<ReturningNfc> {
         final lendingLog =
             await GetFireStore.getLendingLog(item['lending_log_id']);
         if (item["is_lending"]) {
-          SlackControl.returnInformationSend(lendingLog['name'], item['item_name']);
+          SlackControl.returnInformationSend(
+              lendingLog['name'], item['item_name']);
           UpdateFireStore.updateReturningItem(item_id);
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const ReturnigResult()));
