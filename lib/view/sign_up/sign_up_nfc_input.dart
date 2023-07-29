@@ -68,21 +68,25 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  DropdownButton(
-                    items: GetFireStore.categories
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    value: isSelectedItem,
-                    onChanged: (String? value) {
-                      setState(() {
-                        isSelectedItem = value!;
-                      });
-                    },
-                  ),
+                  SizedBox(
+                      width: double.infinity,
+                      child: Center(
+                        child: DropdownButton(
+                          items: GetFireStore.categories
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          value: isSelectedItem,
+                          onChanged: (String? value) {
+                            setState(() {
+                              isSelectedItem = value!;
+                            });
+                          },
+                        ),
+                      )),
                   const SizedBox(height: 20),
                   FilledButton(
                       onPressed: () async {
