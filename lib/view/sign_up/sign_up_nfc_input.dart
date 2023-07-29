@@ -68,25 +68,34 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  SizedBox(
+                  InputDecorator(
+                    decoration: const InputDecoration(
+                      labelText: 'カテゴリ',
+                      border: OutlineInputBorder(),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
                       width: double.infinity,
-                      child: Center(
-                        child: DropdownButton(
-                          items: GetFireStore.categories
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                          value: isSelectedItem,
-                          onChanged: (String? value) {
-                            setState(() {
-                              isSelectedItem = value!;
-                            });
-                          },
-                        ),
-                      )),
+                      height: 25,
+                      child: DropdownButton(
+                        underline: const SizedBox(),
+                        items: GetFireStore.categories
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        isExpanded: true,
+                        value: isSelectedItem,
+                        onChanged: (String? value) {
+                          setState(() {
+                            isSelectedItem = value!;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 20),
                   FilledButton(
                       onPressed: () async {
