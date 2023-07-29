@@ -51,7 +51,21 @@ class _MainpageState extends State<Mainpage> {
                     );
                   },
                   child: const SizedBox(
-                      height: 100, child: Center(child: Text('新規登録'))),
+                      height: 100,
+                      child: Center(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.edit),
+                          SizedBox(width: 10),
+                          Text(
+                            '新規登録',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ))),
                 ),
               ),
             ),
@@ -70,7 +84,21 @@ class _MainpageState extends State<Mainpage> {
                     );
                   },
                   child: const SizedBox(
-                      height: 100, child: Center(child: Text('貸出'))),
+                      height: 100,
+                      child: Center(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.logout),
+                          SizedBox(width: 10),
+                          Text(
+                            '貸出',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ))),
                 ),
               ),
             ),
@@ -89,7 +117,21 @@ class _MainpageState extends State<Mainpage> {
                     );
                   },
                   child: const SizedBox(
-                      height: 100, child: Center(child: Text('返却'))),
+                      height: 100,
+                      child: Center(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.login),
+                          SizedBox(width: 10),
+                          Text(
+                            '返却',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ))),
                 ),
               ),
             ),
