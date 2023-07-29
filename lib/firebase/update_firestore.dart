@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 
 class UpdateFireStore {
   static String itemId = "";
@@ -14,7 +13,6 @@ class UpdateFireStore {
 
     // Add a new document with a generated ID
     await db.collection("items").doc(itemId).update(lendingItem);
-    debugPrint(itemId);
   }
 
   static updateReturningItem(itemId) async {
@@ -26,6 +24,5 @@ class UpdateFireStore {
 
     // Add a new document with a generated ID
     await db.collection("items").doc(itemId).update(lendingItem);
-    debugPrint(itemId);
   }
 }

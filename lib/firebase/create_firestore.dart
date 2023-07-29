@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 
 class CreateFireStore {
   static String itemId = "";
@@ -24,7 +23,6 @@ class CreateFireStore {
         .collection("items")
         .add(item)
         .then((DocumentReference doc) => itemId = doc.id);
-    debugPrint(itemId);
   }
 
   static Future<void> addLendingLogs(comments, item_id, name) async {
@@ -41,6 +39,5 @@ class CreateFireStore {
         .collection("lending_logs")
         .add(lendingLog)
         .then((DocumentReference doc) => lendingId = doc.id);
-    debugPrint("lendingId:$lendingId");
   }
 }

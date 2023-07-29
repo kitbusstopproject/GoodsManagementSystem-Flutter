@@ -33,81 +33,95 @@ class _SignUpNfcInputState extends State<SignUpNfcInput> {
         ),
         body: Padding(
             padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                TextField(
-                  controller: goodsNameController,
-                  decoration: const InputDecoration(
-                    labelText: '物品名',
-                    border: OutlineInputBorder(),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  TextField(
+                    controller: goodsNameController,
+                    decoration: const InputDecoration(
+                      labelText: '物品名',
+                      border: OutlineInputBorder(),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  controller: makerNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'メーカー',
-                    border: OutlineInputBorder(),
+                  const SizedBox(height: 20),
+                  TextField(
+                    controller: makerNameController,
+                    decoration: const InputDecoration(
+                      labelText: 'メーカー',
+                      border: OutlineInputBorder(),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  controller: modelNumberController,
-                  decoration: const InputDecoration(
-                    labelText: '型番',
-                    border: OutlineInputBorder(),
+                  const SizedBox(height: 20),
+                  TextField(
+                    controller: modelNumberController,
+                    decoration: const InputDecoration(
+                      labelText: '型番',
+                      border: OutlineInputBorder(),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                TextField(
-                  controller: supplierController,
-                  decoration: const InputDecoration(
-                    labelText: '購入元',
-                    border: OutlineInputBorder(),
+                  const SizedBox(height: 20),
+                  TextField(
+                    controller: supplierController,
+                    decoration: const InputDecoration(
+                      labelText: '購入元',
+                      border: OutlineInputBorder(),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                DropdownButton(
-                  items: GetFireStore.categories
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  value: isSelectedItem,
-                  onChanged: (String? value) {
-                    setState(() {
-                      isSelectedItem = value!;
-                      debugPrint(isSelectedItem);
-                    });
-                  },
-                ),
-                const SizedBox(height: 20),
-                FilledButton(
-                    onPressed: () async {
-                      goodsName = goodsNameController.text;
-                      makerName = makerNameController.text;
-                      modelNumber = modelNumberController.text;
-                      supplier = supplierController.text;
-                      await CreateFireStore.addItem(isSelectedItem, goodsName, makerName, modelNumber,
-                          supplier);
-                      // ignore: use_build_context_synchronously
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SignUpNfc(
-                                  goodsId: CreateFireStore.itemId,
-                                  goodsName: goodsName,
-                                  makerName: makerName,
-                                  modelNumber: modelNumber,
-                                  supplier: supplier,
-                                  category: isSelectedItem,
-                                )),
-                      );
-                    },
-                    child: const Text('情報登録')),
-              ],
+                  const SizedBox(height: 20),
+                  InputDecorator(
+                    decoration: const InputDecoration(
+                      labelText: 'カテゴリ',
+                      border: OutlineInputBorder(),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: double.infinity,
+                      height: 25,
+                      child: DropdownButton(
+                        underline: const SizedBox(),
+                        items: GetFireStore.categories
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        isExpanded: true,
+                        value: isSelectedItem,
+                        onChanged: (String? value) {
+                          setState(() {
+                            isSelectedItem = value!;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  FilledButton(
+                      onPressed: () async {
+                        goodsName = goodsNameController.text;
+                        makerName = makerNameController.text;
+                        modelNumber = modelNumberController.text;
+                        supplier = supplierController.text;
+                        await CreateFireStore.addItem(isSelectedItem, goodsName,
+                            makerName, modelNumber, supplier);
+                        // ignore: use_build_context_synchronously
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpNfc(
+                                    goodsId: CreateFireStore.itemId,
+                                    goodsName: goodsName,
+                                    makerName: makerName,
+                                    modelNumber: modelNumber,
+                                    supplier: supplier,
+                                    category: isSelectedItem,
+                                  )),
+                        );
+                      },
+                      child: const Text('情報登録')),
+                ],
+              ),
             )));
   }
 }

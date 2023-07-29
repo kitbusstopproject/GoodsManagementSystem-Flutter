@@ -8,7 +8,18 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("物品管理アプリ"),
+        title: Row(
+          children: [
+            SizedBox(
+              height: 40,
+              child: Image.asset('images/notty.jpg'),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            const Text("物品管理しちゃおっかなー")
+          ],
+        ),
       ),
       body: const Mainpage(),
     );

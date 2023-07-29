@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:goodsmanagementsystem/audio/zunmon_audio_controller.dart';
+import 'package:goodsmanagementsystem/view/zundamon/supply_rate.dart';
 
 class Zundamon extends StatefulWidget {
   const Zundamon({super.key});
@@ -58,7 +59,15 @@ class _ZundamonState extends State<Zundamon> {
         body: Center(
             child: Column(mainAxisSize: MainAxisSize.min, children: [
           Image.asset(zunmonList[random.nextInt(24)]),
-          const Text("©VOICEVOX:ずんだもん")
+          const Text("©VOICEVOX:ずんだもん"),
+          FilledButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SupplyRate()));
+              },
+              child: const Text("提供割合"))
         ])));
   }
 }

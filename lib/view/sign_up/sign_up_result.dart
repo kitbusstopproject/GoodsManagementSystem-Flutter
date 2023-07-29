@@ -39,14 +39,17 @@ class SignUpResult extends StatelessWidget {
               ),
               borderRadius: const BorderRadius.all(Radius.circular(12)),
             ),
-            child: Column(children: [
-              const Text("登録情報"),
-              Text("物品名：$goodsName"),
-              Text("メーカー：$makerName"),
-              Text("型番:$modelNumber"),
-              Text("購入元：$supplier"),
-              Text("カテゴリ：$category"),
-            ]),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(children: [
+                const Text("登録情報"),
+                Text("物品名：$goodsName"),
+                Text("メーカー：$makerName"),
+                Text("型番:$modelNumber"),
+                Text("購入元：$supplier"),
+                Text("カテゴリ：$category"),
+              ]),
+            ),
           ),
           const SizedBox(height: 20),
           ElevatedButton(

@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, use_build_context_synchronously, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:goodsmanagementsystem/view/sign_up/sign_up_result.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
@@ -85,7 +84,6 @@ class _SignUpNfcState extends State<SignUpNfc> {
         // NfcManager.instance.stopSession(errorMessage: result.value.toString());
         return;
       }
-      Fluttertoast.showToast(msg: result.value);
       Navigator.push(
           context,
           MaterialPageRoute(
