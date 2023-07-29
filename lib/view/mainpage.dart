@@ -40,34 +40,61 @@ class _MainpageState extends State<Mainpage> {
             child: Column(
           // mainAxisSize: MainAxisSize.min,
           children: [
-            GestureDetector(
-                child: const ActionCard(actionName: "新規登録"),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SignUpNfcInput()),
-                  );
-                }),
+            Center(
+              child: Card(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                elevation: 0,
+                color: Theme.of(context).colorScheme.surfaceVariant,
+                child: InkWell(
+                  onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpNfcInput()),
+                      );
+                    },
+                  child: SizedBox(
+                        height: 100, child: Center(child: Text('新規登録'))),
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
-            GestureDetector(
-                child: const ActionCard(actionName: "貸出"),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LendingNfc()),
-                  );
-                }),
+            Center(
+              child: Card(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                elevation: 0,
+                color: Theme.of(context).colorScheme.surfaceVariant,
+                child: InkWell(
+                  onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const LendingNfc()),
+                      );
+                    },
+                  child: SizedBox(
+                        height: 100, child: Center(child: Text('貸出'))),
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
-            GestureDetector(
-                child: const ActionCard(actionName: "返却"),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const ReturningNfc()),
-                  );
-                }),
+            Center(
+              child: Card(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                elevation: 0,
+                color: Theme.of(context).colorScheme.surfaceVariant,
+                child: InkWell(
+                  onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ReturningNfc()),
+                      );
+                    },
+                  child: SizedBox(
+                        height: 100, child: Center(child: Text('返却'))),
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
             Expanded(
               child: GestureDetector(

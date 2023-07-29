@@ -8,6 +8,7 @@ class ActionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Card(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
         elevation: 0,
         color: Theme.of(context).colorScheme.surfaceVariant,
         child: SizedBox(height: 100, child: Center(child: Text(actionName))),
