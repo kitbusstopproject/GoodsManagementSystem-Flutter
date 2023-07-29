@@ -49,7 +49,6 @@ class _LendingNfcState extends State<LendingNfc> {
     NfcManager.instance.startSession(onDiscovered: (NfcTag tag) async {
       String item_id = "";
       result.value = tag.data;
-      // Fluttertoast.showToast(msg: tag.data.toString());
 
       List<int> tagData =
           tag.data["ndef"]["cachedMessage"]["records"][0]["payload"];
