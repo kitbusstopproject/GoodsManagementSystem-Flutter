@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:goodsmanagementsystem/audio/zunmon_audio_controller.dart';
-import 'package:goodsmanagementsystem/components/action_card.dart';
 import 'package:goodsmanagementsystem/view/lend/lending_nfc.dart';
 import 'package:goodsmanagementsystem/view/return/returning_nfc.dart';
 import 'package:goodsmanagementsystem/view/sign_up/sign_up_nfc_input.dart';
@@ -47,14 +46,14 @@ class _MainpageState extends State<Mainpage> {
                 color: Theme.of(context).colorScheme.surfaceVariant,
                 child: InkWell(
                   onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpNfcInput()),
-                      );
-                    },
-                  child: SizedBox(
-                        height: 100, child: Center(child: Text('新規登録'))),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpNfcInput()),
+                    );
+                  },
+                  child: const SizedBox(
+                      height: 100, child: Center(child: Text('新規登録'))),
                 ),
               ),
             ),
@@ -66,13 +65,14 @@ class _MainpageState extends State<Mainpage> {
                 color: Theme.of(context).colorScheme.surfaceVariant,
                 child: InkWell(
                   onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const LendingNfc()),
-                      );
-                    },
-                  child: SizedBox(
-                        height: 100, child: Center(child: Text('貸出'))),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LendingNfc()),
+                    );
+                  },
+                  child: const SizedBox(
+                      height: 100, child: Center(child: Text('貸出'))),
                 ),
               ),
             ),
@@ -84,14 +84,14 @@ class _MainpageState extends State<Mainpage> {
                 color: Theme.of(context).colorScheme.surfaceVariant,
                 child: InkWell(
                   onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ReturningNfc()),
-                      );
-                    },
-                  child: SizedBox(
-                        height: 100, child: Center(child: Text('返却'))),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ReturningNfc()),
+                    );
+                  },
+                  child: const SizedBox(
+                      height: 100, child: Center(child: Text('返却'))),
                 ),
               ),
             ),
